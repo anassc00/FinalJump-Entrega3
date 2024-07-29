@@ -1,10 +1,22 @@
 const { Sequelize } = require("sequelize");
+//const { db } = require("../config");
+
 const dotenv = require("dotenv");
+dotenv.config();
+
+const db = {
+  HOST: process.env.HOST || "localhost",
+  USER: process.env.USER || "root",
+  PASSWORD: process.env.PASSWORD || "daniela123",
+  PORT: process.env.PORT || "3306",
+  DIALECT: process.env.DIALECT || "mysql",
+  NAME: process.env.NAME || "trailerflix",
+};
 
 const sequelize = new Sequelize(
-  "northwind",
-  "root",
-  "daniela123",
+  db.NAME,
+  db.USER,
+  db.PASSWORD,
 
   {
     host: "localhost",
