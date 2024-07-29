@@ -2,7 +2,7 @@ CREATE SCHEMA trailerflix;
 
 CREATE TABLE trailerflix.categoria (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(100) NOT NULL UNIQUE,
+    nombre VARCHAR(100) NOT NULL,
     temporadas INT
 );
 
