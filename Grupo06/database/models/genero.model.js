@@ -1,19 +1,23 @@
 module.exports = (sequelize, Sequelize, DataTypes) => {
-    const Genero = sequelize.define('genero', {
-        id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            allowNull: false,
-            autoIncrement: true
-        },
-        nombre: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
-        }
-    }, {
-        timestamps: true,
-        underscored: true,
-    });
-    return Genero;
-}
+  const Genero = sequelize.define(
+    "generos",
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true,
+      },
+      nombre: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+      },
+    },
+    {
+      timestamps: false,
+      underscored: true,
+    }
+  );
+  return Genero;
+};

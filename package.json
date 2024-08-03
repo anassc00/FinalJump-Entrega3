@@ -1,0 +1,18 @@
+{
+  "name": "finaljump-entrega3",
+  "version": "1.0.0",
+  "description": "La Pre-entrega 3 requerirá que elabores con tu equipo un proyecto utilizando Node.js y MySQL, acompañado de una documentación adecuada. A continuación, se detalla una **🚦Guía** a seguir:",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "mysql2": "^3.11.0",
+    "sequelize": "^6.37.3"
+  }
+}
