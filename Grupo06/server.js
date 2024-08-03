@@ -1,9 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const config = require("./config/config");
+//const sequelize = require("./database/connect_mysql"); // Importar la conexión a la base de datos
 const PORT = config.PORT
 
 const app = express();
+//await sequelize.authenticate()
 
 const corsOptions = {
   origin: "http://localhost:"+ config.PORT
@@ -17,7 +19,7 @@ app.get("/", (req, res) => {
     res.json({ message: "This is de landing page for the moment" })
 })
 
-//AQUI SE DEBERIA LLAMAR A LOS ENDPOINTS EN LA CARPETA CONTROLLER
+//AQUI SE DEBERIA LLAMAR A LOS ENDPOINTS EN LA CARPETA ROUTE
 
 
 //Llamada al servidor
