@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const { sequelize } = require("../database/connect_mysql.js");
-const GeneroModel = require("../database/models/Genero.model.js");
+const GeneroModel = require("../database/models/genero.model.js");
 
 const Genero = GeneroModel(
   sequelize,
