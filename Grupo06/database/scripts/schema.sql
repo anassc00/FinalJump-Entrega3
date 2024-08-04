@@ -6,7 +6,7 @@ CREATE TABLE trailerflix.categoria (
     temporadas INT
 );
 
-CREATE TABLE trailerflix.genero (
+CREATE TABLE trailerflix.generos (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL UNIQUE
 );
@@ -30,7 +30,7 @@ CREATE TABLE trailerflix.contenido (
     idCat INT NOT NULL,
     idGen INT NOT NULL,
     FOREIGN KEY (idCat) REFERENCES trailerflix.categoria(id),
-    FOREIGN KEY (idGen) REFERENCES trailerflix.genero(id)
+    FOREIGN KEY (idGen) REFERENCES trailerflix.generos(id)
 );
 
 CREATE TABLE trailerflix.tags_de_contenido (

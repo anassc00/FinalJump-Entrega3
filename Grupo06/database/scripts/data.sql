@@ -12,7 +12,7 @@ INSERT INTO trailerflix.categoria (nombre, temporadas) VALUES
 ('Documental', NULL),
 ('Película', NULL);
 
-INSERT INTO trailerflix.genero (nombre) VALUES
+INSERT INTO trailerflix.generos (nombre) VALUES
 ('Romance'),
 ('Suspenso'),
 ('Fantasía'),

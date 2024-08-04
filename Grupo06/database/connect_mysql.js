@@ -1,26 +1,39 @@
-const { Sequelize } = require('sequelize');
-const { database } = require('../config/config');
+const { Sequelize } = require("sequelize");
+const dotenv = require("dotenv");
+dotenv.config();
 
-const sequelize = new Sequelize(
-    database.NAME, 
-    database.USER, 
-    database.PASSWORD, 
-    {
-        host: database.HOST,
-        dialect: database.DIALECT
-    }
-);
+const db = {
+  HOST: process.env.DB_HOST || "localhost",
+  USER: process.env.DB_USER || "root",
+  PASSWORD: process.env.DB_PASS || "mysql1234",
+  DB: process.env.DB_NAME || "trailerflix",
+  DB_PORT: process.env.DB_PORT || 3306,
+  DIALECT: process.env.DB_DIALECT || "mysql",
+};
 
-sequelize.authenticate().then(() => {
-    console.log('Connection has been established successfully.');
-  }).catch((error) => {
-    console.error('Unable to connect to the database: ', error);
-  });
-  
-  sequelize.close().then(() => {
-    console.log('Clouse Connection.');
-  }).catch((error) => {
-    console.error('Unable clouse to Connection to the database: ', error);
-  });
-  
-  module.exports = sequelize;
+const sequelize = new Sequelize("trailerflix", "root", "daniela123", {
+  host: "localhost",
+  dialect: "mysql",
+});
+
+/*async function authenticate() {
+  try {
+    await sequelize.authenticate();
+    console.log("Connection has been established successfully.");
+  } catch (error) {
+    console.error("Unable to connect to the db: ", error);
+  }
+}
+
+async function closeConnection() {
+  try {
+    await sequelize.close();
+    console.log("Connection has been closed successfully.");
+  } catch (error) {
+    console.error("Unable to close the connection to the db: ", error);
+  }
+}
+
+authenticate();*/
+
+module.exports = { sequelize };
