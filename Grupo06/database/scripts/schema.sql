@@ -29,20 +29,20 @@ CREATE TABLE trailerflix.contenidos (
     resumen VARCHAR(1000) NOT NULL,
     idCat INT NOT NULL,
     idGen INT NOT NULL,
-    FOREIGN KEY (idCat) REFERENCES trailerflix.categoria(id),
+    FOREIGN KEY (idCat) REFERENCES trailerflix.categorias(id),
     FOREIGN KEY (idGen) REFERENCES trailerflix.generos(id)
 );
 
 CREATE TABLE trailerflix.tags_de_contenidos (
     contenido_id BIGINT,
     tag_id INT,
-    FOREIGN KEY (contenido_id) REFERENCES trailerflix.contenido(id),
-    FOREIGN KEY (tag_id) REFERENCES trailerflix.tag(id)
+    FOREIGN KEY (contenido_id) REFERENCES trailerflix.contenidos(id),
+    FOREIGN KEY (tag_id) REFERENCES trailerflix.tags(id)
 );
 
 CREATE TABLE trailerflix.reparto_de_contenidos (
     contenido_id BIGINT,
     actor_id INT,
-    FOREIGN KEY (contenido_id) REFERENCES trailerflix.contenido(id),
-    FOREIGN KEY (actor_id) REFERENCES trailerflix.actor(id)
+    FOREIGN KEY (contenido_id) REFERENCES trailerflix.contenidos(id),
+    FOREIGN KEY (actor_id) REFERENCES trailerflix.actores(id)
 );
