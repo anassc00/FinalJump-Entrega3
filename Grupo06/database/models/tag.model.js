@@ -11,7 +11,7 @@ module.exports = (sequelize, Sequelize, DataTypes) => {
             allowNull: false
         }
     }, {
-        timestamps: true,
+        timestamps: false,
         underscored: true,
     });
     return Tag;
