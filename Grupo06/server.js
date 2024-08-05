@@ -52,6 +52,8 @@ authenticate();
 //AQUI SE DEBERIA LLAMAR A LOS ENDPOINTS EN LA CARPETA ROUTE
 
 app.use("/api", generosRouter);
+app.use("/api", categoriasRouter);
+app.use("/api", contenidosRouter);
 app.use("/api", tagsRouter);
 app.use("/api", tagsDeContenidoRouter);
 

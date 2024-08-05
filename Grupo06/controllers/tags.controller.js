@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const { sequelize } = require("../database/connect_mysql.js");
-const TagModel = require("../database/models/Tag.model.js");
+const TagModel = require("../database/models/tag.model.js");
 
 
 const tag = TagModel( sequelize, require("sequelize"), require("sequelize").DataTypes );
@@ -51,18 +51,18 @@ tagsRouter.put("/tag/:id" , async(req,res) => {
     }
 })
 
-
+/*
 tagsRouter.delete("/tag/:id" , async(req,res) => {
     try {
         const { id }= req.params;
-        await Tag.destroy({ where: { id }, });
+        await tag.destroy({ where: { id }, });
         res.status(204).end();
     } catch (error) {
         res.status(500).json  
     }
 })
 
-
+*/
 
 
 
