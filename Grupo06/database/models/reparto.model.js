@@ -14,6 +14,7 @@ module.exports = (sequelize, Sequelize, DataTypes) => {
         timestamps: false,
         underscored: true,
     });
+    
     Actor.belongsToMany(Contenido, { 
         through: Reparto,
         foreignKey: 'actor_id',
