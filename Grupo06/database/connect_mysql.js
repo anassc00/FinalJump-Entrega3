@@ -11,7 +11,7 @@ const db = {
   DIALECT: process.env.DB_DIALECT || "mysql",
 };
 
-const sequelize = new Sequelize("trailerflix", "root", "daniela123", {
+const sequelize = new Sequelize(db.DB, db.USER, db.PASSWORD, {
   host: "localhost",
   dialect: "mysql",
 });

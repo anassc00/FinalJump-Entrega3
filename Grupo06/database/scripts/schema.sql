@@ -27,10 +27,10 @@ CREATE TABLE trailerflix.contenidos (
     poster VARCHAR(100),
     trailer VARCHAR(100),
     resumen VARCHAR(1000) NOT NULL,
-    idCat INT NOT NULL,
-    idGen INT NOT NULL,
-    FOREIGN KEY (idCat) REFERENCES trailerflix.categorias(id),
-    FOREIGN KEY (idGen) REFERENCES trailerflix.generos(id)
+    id_cat INT NOT NULL,
+    id_gen INT NOT NULL,
+    FOREIGN KEY (id_cat) REFERENCES trailerflix.categorias(id),
+    FOREIGN KEY (id_gen) REFERENCES trailerflix.generos(id)
 );
 
 CREATE TABLE trailerflix.tags_de_contenidos (

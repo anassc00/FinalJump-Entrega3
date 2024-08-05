@@ -4,7 +4,8 @@ const config = require("./config/config");
 const PORT = config.PORT;
 const { sequelize } = require("./database/connect_mysql.js");
 const { generosRouter } = require("./controllers/generos.controller.js");
-
+const { contenidosRouter } = require("./controllers/contenidos.controller.js");
+const { Actor, Categoria, Contenido, Genero, Reparto, Tag, TagsDeContenido } = require("./database/models");
 const app = express();
 //await sequelize.authenticate()
 
@@ -43,6 +44,7 @@ authenticate();
 //AQUI SE DEBERIA LLAMAR A LOS ENDPOINTS EN LA CARPETA ROUTE
 
 app.use("/api", generosRouter);
+app.use("/api", contenidosRouter);
 
 //Llamada al servidor
 app.listen(PORT, () => {
