@@ -53,7 +53,7 @@ Este proyecto es una API basada en Express y Sequelize que se conecta a una base
 
 1. **Clona el repositorio**:
    ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git`` 
+   git clone https://github.com/mariaelisaaraya/FinalJump-Entrega3.git`` 
 
 2.  **Navega al directorio del proyecto**:
     
@@ -117,13 +117,12 @@ Este proyecto es una API basada en Express y Sequelize que se conecta a una base
         -   `GET /api/categorias/:id`: Obtener una categoría específica por ID.
         -   `POST /api/categorias`: Crear una nueva categoría.
         -   `PUT /api/categorias/:id`: Actualizar una categoría existente por ID.
-        -   `DELETE /api/categorias/:id`: Eliminar una categoría por ID.
+
     -   **TagsDeContenido**:
         
         -   `GET /api/tagsDeContenido`: Obtener todas las asociaciones entre tags y contenidos.
         -   `GET /api/tagsDeContenido/:tagId/:contenidoId`: Obtener una asociación específica por `tagId` y `contenidoId`.
         -   `POST /api/tagsDeContenido`: Crear una nueva asociación entre tag y contenido.
-        -   `PUT /api/tagsDeContenido/:tagId/:contenidoId`: Actualizar una asociación existente por `tagId` y `contenidoId`.
         -   `DELETE /api/tagsDeContenido/:tagId/:contenidoId`: Eliminar una asociación específica por `tagId` y `contenidoId`.
 
 ## Conexión a la Base de Datos
