@@ -4,6 +4,8 @@ const config = require("./config/config");
 const PORT = config.PORT;
 const { sequelize } = require("./database/connect_mysql.js");
 const { generosRouter } = require("./controllers/generos.controller.js");
+const { tagsDeContenidoRouter } = require("./controllers/tagsDeContenido.controller.js");
+const { tagsRouter } = require("./controllers/tags.controller.js");
 const { contenidosRouter } = require("./controllers/contenidos.controller.js");
 const { categoriasRouter } = require("./controllers/categorias.controller.js");
 const {
@@ -15,13 +17,10 @@ const {
   Tag,
   TagsDeContenido,
 } = require("./database/models");
+const corsOptions = {  origin: "http://localhost:" + config.PORT,};
+
+
 const app = express();
-//await sequelize.authenticate()
-
-const corsOptions = {
-  origin: "http://localhost:" + config.PORT,
-};
-
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -53,8 +52,8 @@ authenticate();
 //AQUI SE DEBERIA LLAMAR A LOS ENDPOINTS EN LA CARPETA ROUTE
 
 app.use("/api", generosRouter);
-app.use("/api", contenidosRouter);
-app.use("/api", categoriasRouter);
+app.use("/api", tagsRouter);
+app.use("/api", tagsDeContenidoRouter);
 
 //Llamada al servidor
 app.listen(PORT, () => {

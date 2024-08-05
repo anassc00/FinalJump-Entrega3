@@ -5,13 +5,13 @@ dotenv.config();
 const db = {
   HOST: process.env.DB_HOST || "localhost",
   USER: process.env.DB_USER || "root",
-  PASSWORD: process.env.DB_PASS || "mysql1234",
+  PASSWORD: process.env.DB_PASS || "ayelen",
   DB: process.env.DB_NAME || "trailerflix",
   DB_PORT: process.env.DB_PORT || 3306,
   DIALECT: process.env.DB_DIALECT || "mysql",
 };
 
-const sequelize = new Sequelize(db.DB, db.USER, "daniela123", {
+const sequelize = new Sequelize(db.DB, db.USER, "ayelen", {
   host: "localhost",
   dialect: "mysql",
 });
