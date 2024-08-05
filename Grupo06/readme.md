@@ -108,16 +108,15 @@ Este proyecto es una API basada en Express y Sequelize que se conecta a una base
         
         -   `GET /api/contenidos`: Obtener todos los contenidos.
         -   `GET /api/contenidos/:id`: Obtener un contenido específico por ID.
-        -   `POST /api/contenidos`: Crear un nuevo contenido.
-        -   `PUT /api/contenidos/:id`: Actualizar un contenido existente por ID.
-        -   `DELETE /api/contenidos/:id`: Eliminar un contenido por ID.
+        -   `GET /api/contenidos/titulo/:titulo`: Obtener un contenido por un titulo.
+        -   `GET /api/contenidos/categoria/:categoria`: Obtener un contenido por el nombre de una categoria.
+        -   `GET /api/contenidos/genero/:genero`: Obtener un contenido por el nombre de un genero.
     -   **Categorías**:
         
         -   `GET /api/categorias`: Obtener todas las categorías.
         -   `GET /api/categorias/:id`: Obtener una categoría específica por ID.
         -   `POST /api/categorias`: Crear una nueva categoría.
         -   `PUT /api/categorias/:id`: Actualizar una categoría existente por ID.
-
     -   **TagsDeContenido**:
         
         -   `GET /api/tagsDeContenido`: Obtener todas las asociaciones entre tags y contenidos.
