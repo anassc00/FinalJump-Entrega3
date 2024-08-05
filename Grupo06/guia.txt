@@ -6,7 +6,7 @@ get de trailer de contenido por el id de contenido /trailer/:id
 
 
 ------
-post/get/put por cada tabla
+post/get/put por cada tabla.
 **get de contenido por el nombre del actor /reparto/:act
 **get de contenido por el nombre de una categoria /contenido/:categoria
 
