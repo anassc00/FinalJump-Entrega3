@@ -1,5 +1,6 @@
+/*
 const { Sequelize, DataTypes, Op } = require('sequelize');
-const { db } = require('../../config/config');
+const db = require('../../config/config');
 
 const sequelize = new Sequelize(
     db.DB_NAME,
@@ -7,7 +8,7 @@ const sequelize = new Sequelize(
     db.DB_PASSWORD,
     {
         host: db.DB_HOST,
-        dialect: db.DIALECT
+        dialect: 'mysql', 
     }
 );
 
@@ -36,10 +37,10 @@ database.contenido.belongsToMany(db.actor, {
     foreignKey: 'contenido_id',
     otherKey: 'actor_id'
 });
-database.categoria.hasMany(db.contenido, { foreignKey: 'categoria_id' });
-database.contenido.belongsTo(db.categoria, { foreignKey: 'categoria_id' });
-database.genero.hasMany(db.contenido, { foreignKey: 'genero_id' });
-database.contenido.belongsTo(db.genero, { foreignKey: 'genero_id' });
+//database.categoria.hasMany(db.contenido, { foreignKey: 'categoria_id' });
+//database.contenido.belongsTo(db.categoria, { foreignKey: 'categoria_id' });
+//database.genero.hasMany(db.contenido, { foreignKey: 'genero_id' });
+//database.contenido.belongsTo(db.genero, { foreignKey: 'genero_id' });
 database.contenido.belongsToMany(db.tag, {
     through: db.tagsDeContenido,
     foreignKey: 'contenido_id',
@@ -67,3 +68,4 @@ sequelize.sync().then(() => {
 });
 
 module.exports = database;
+*/

@@ -4,8 +4,19 @@ const config = require("./config/config");
 const PORT = config.PORT;
 const { sequelize } = require("./database/connect_mysql.js");
 const { generosRouter } = require("./controllers/generos.controller.js");
-
+const { contenidosRouter } = require("./controllers/contenidos.controller.js");
+const { categoriasRouter } = require("./controllers/categorias.controller.js");
+const {
+  Actor,
+  Categoria,
+  Contenido,
+  Genero,
+  Reparto,
+  Tag,
+  TagsDeContenido,
+} = require("./database/models");
 const app = express();
+//await sequelize.authenticate()
 
 const corsOptions = {
   origin: "http://localhost:" + config.PORT,
@@ -39,9 +50,11 @@ async function closeConnection() {
 
 authenticate();
 
-//AQUI SE DEBERIA LLAMAR A LOS ENDPOINTS EN LA CARPETA CONTROLLER
+//AQUI SE DEBERIA LLAMAR A LOS ENDPOINTS EN LA CARPETA ROUTE
 
 app.use("/api", generosRouter);
+app.use("/api", contenidosRouter);
+app.use("/api", categoriasRouter);
 
 //Llamada al servidor
 app.listen(PORT, () => {
