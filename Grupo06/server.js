@@ -1,9 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const config = require("./config/config");
-const PORT = config.PORT;
+const config = require("./config/config.js");
+const PORT = config.PORT || 3001;
 const { sequelize } = require("./database/connect_mysql.js");
 const { generosRouter } = require("./controllers/generos.controller.js");
+const { actoresRouter } = require("./controllers/actores.controller.js")
+const { repartosRouter } = require("./controllers/repartos.controller.js");
 
 const app = express();
 //await sequelize.authenticate()
@@ -13,7 +15,6 @@ const corsOptions = {
 };
 
 app.use(bodyParser.json());
-
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
@@ -43,8 +44,16 @@ authenticate();
 //AQUI SE DEBERIA LLAMAR A LOS ENDPOINTS EN LA CARPETA ROUTE
 
 app.use("/api", generosRouter);
+app.use("/api/actores", actoresRouter);
+app.use("/api/repartos", repartosRouter);
 
 //Llamada al servidor
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${corsOptions.origin}`);
+});
+
+app._router.stack.forEach((r) => {
+  if (r.route && r.route.path) {
+      console.log(`Route: ${r.route.path}`);
+  }
 });

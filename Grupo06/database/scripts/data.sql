@@ -72,7 +72,7 @@ INSERT trailerflix.actor (nombre) VALUES
 ('Denzel Washington'),
 ('Tom Cruise');
 
-INSERT trailerflix.contenido (titulo, poster, trailer, resumen, idCat, idGen) VALUES
+INSERT trailerflix.contenido (titulo, poster, trailer, resumen, id_cat, id_gen) VALUES
 ('Avengers: Endgame', 'avengers-endgame.jpg', 'https://www.youtube.com/watch?v=TcMBFSGVi1c', 'Los Vengadores se enfrentan a Thanos en una batalla final por el destino del universo.', 12, 8),
 ('Avengers: Infinity War', 'avengers-infinity-war.jpg', 'https://www.youtube.com/watch?v=6ZfuNTqbHE8', 'Thanos busca las gemas del infinito para destruir la mitad del universo.', 12, 8),
 ('Guardians of the Galaxy', 'guardians-of-the-galaxy.jpg', 'https://www.youtube.com/watch?v=d96cjJhvlMA', 'Un grupo de inadaptados se unen para proteger una gema del infinito.', 12, 8),

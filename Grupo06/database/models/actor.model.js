@@ -11,7 +11,8 @@ module.exports = (sequelize, Sequelize, DataTypes) => {
             allowNull: false,
         }
     }, {
-        timestamps: true,
+        tableName: 'actor',
+        timestamps: false,
         underscored: true,
     });
     return Actor;
