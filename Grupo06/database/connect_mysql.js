@@ -54,7 +54,16 @@ const sequelize = new Sequelize(
   }
 );
 
+<<<<<<< HEAD
 async function authenticate() {
+=======
+const sequelize = new Sequelize(db.DB, db.USER, db.PASSWORD, {
+  host: "localhost",
+  dialect: "mysql",
+});
+
+/*async function authenticate() {
+>>>>>>> 1eaa125c55830e1126591a897d97a1394f7b8548
   try {
     await sequelize.authenticate();
     console.log('Connection has been established successfully.');

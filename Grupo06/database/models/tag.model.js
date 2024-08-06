@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize, DataTypes) => {
-    const Tag = sequelize.define('tag', {
+    const Tag = sequelize.define('tags', {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -11,7 +11,7 @@ module.exports = (sequelize, Sequelize, DataTypes) => {
             allowNull: false
         }
     }, {
-        timestamps: true,
+        timestamps: false,
         underscored: true,
     });
     return Tag;

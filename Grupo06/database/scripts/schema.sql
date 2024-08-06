@@ -1,6 +1,6 @@
 CREATE SCHEMA trailerflix;
 
-CREATE TABLE trailerflix.categoria (
+CREATE TABLE trailerflix.categorias (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL,
     temporadas INT
@@ -11,38 +11,38 @@ CREATE TABLE trailerflix.generos (
     nombre VARCHAR(100) NOT NULL UNIQUE
 );
 
-CREATE TABLE trailerflix.tag (
+CREATE TABLE trailerflix.tags (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL UNIQUE
 );
 
-CREATE TABLE trailerflix.actor (
+CREATE TABLE trailerflix.actores (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE trailerflix.contenido (
+CREATE TABLE trailerflix.contenidos (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(100) NOT NULL,
     poster VARCHAR(100),
     trailer VARCHAR(100),
     resumen VARCHAR(1000) NOT NULL,
-    idCat INT NOT NULL,
-    idGen INT NOT NULL,
-    FOREIGN KEY (idCat) REFERENCES trailerflix.categoria(id),
-    FOREIGN KEY (idGen) REFERENCES trailerflix.generos(id)
+    id_cat INT NOT NULL,
+    id_gen INT NOT NULL,
+    FOREIGN KEY (id_cat) REFERENCES trailerflix.categorias(id),
+    FOREIGN KEY (id_gen) REFERENCES trailerflix.generos(id)
 );
 
-CREATE TABLE trailerflix.tags_de_contenido (
+CREATE TABLE trailerflix.tags_de_contenidos (
     contenido_id BIGINT,
     tag_id INT,
-    FOREIGN KEY (contenido_id) REFERENCES trailerflix.contenido(id),
-    FOREIGN KEY (tag_id) REFERENCES trailerflix.tag(id)
+    FOREIGN KEY (contenido_id) REFERENCES trailerflix.contenidos(id),
+    FOREIGN KEY (tag_id) REFERENCES trailerflix.tags(id)
 );
 
-CREATE TABLE trailerflix.reparto_de_contenido (
+CREATE TABLE trailerflix.reparto_de_contenidos (
     contenido_id BIGINT,
     actor_id INT,
-    FOREIGN KEY (contenido_id) REFERENCES trailerflix.contenido(id),
-    FOREIGN KEY (actor_id) REFERENCES trailerflix.actor(id)
+    FOREIGN KEY (contenido_id) REFERENCES trailerflix.contenidos(id),
+    FOREIGN KEY (actor_id) REFERENCES trailerflix.actores(id)
 );

@@ -11,7 +11,10 @@ module.exports = (sequelize, Sequelize, DataTypes) => {
             allowNull: false,
         }
     }, {
+<<<<<<< HEAD
         tableName: 'actor',
+=======
+>>>>>>> 1eaa125c55830e1126591a897d97a1394f7b8548
         timestamps: false,
         underscored: true,
     });
