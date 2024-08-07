@@ -57,8 +57,7 @@ tagsDeContenidoRouter.post("/tagsDeContenido", async (req, res) => {
     }
 });
 
-/*
-// Actualizar una asociación existente
+ //Actualizar una asociación existente
 tagsDeContenidoRouter.put("/tagsDeContenido/:tagId/:contenidoId", async (req, res) => {
     const { tagId, contenidoId } = req.params;
     const { newTagId, newContenidoId } = req.body;
@@ -83,7 +82,7 @@ tagsDeContenidoRouter.put("/tagsDeContenido/:tagId/:contenidoId", async (req, re
         res.status(500).json({ error: 'Error al actualizar la asociación' });
     }
 });
-*/
+
 
 // Eliminar una asociación
 tagsDeContenidoRouter.delete("/tagsDeContenido/:tagId/:contenidoId", async (req, res) => {

@@ -36,7 +36,7 @@ INSERT INTO trailerflix.tags (nombre) VALUES
 ('Futuro'),
 ('Infantil');
 
-INSERT trailerflix.actores (nombre) VALUES
+INSERT trailerflix.actors (nombre) VALUES
 ('Tom Hanks'),
 ('Scarlett Johansson'),
 ('Robert Downey Jr.'),
@@ -72,11 +72,7 @@ INSERT trailerflix.actores (nombre) VALUES
 ('Denzel Washington'),
 ('Tom Cruise');
 
-<<<<<<< HEAD
-INSERT trailerflix.contenido (titulo, poster, trailer, resumen, id_cat, id_gen) VALUES
-=======
 INSERT trailerflix.contenidos (titulo, poster, trailer, resumen, id_cat, id_gen) VALUES
->>>>>>> 1eaa125c55830e1126591a897d97a1394f7b8548
 ('Avengers: Endgame', 'avengers-endgame.jpg', 'https://www.youtube.com/watch?v=TcMBFSGVi1c', 'Los Vengadores se enfrentan a Thanos en una batalla final por el destino del universo.', 12, 8),
 ('Avengers: Infinity War', 'avengers-infinity-war.jpg', 'https://www.youtube.com/watch?v=6ZfuNTqbHE8', 'Thanos busca las gemas del infinito para destruir la mitad del universo.', 12, 8),
 ('Guardians of the Galaxy', 'guardians-of-the-galaxy.jpg', 'https://www.youtube.com/watch?v=d96cjJhvlMA', 'Un grupo de inadaptados se unen para proteger una gema del infinito.', 12, 8),
@@ -125,7 +121,7 @@ INSERT trailerflix.tags_de_contenidos (contenido_id, tag_id) VALUES
 (19, 6),
 (20, 10);
 
-INSERT trailerflix.reparto_de_contenidos (contenido_id, actor_id) VALUES
+INSERT trailerflix.reparto_de_contenidos (contenido_id, actors_id) VALUES
 (1, 1),
 (1, 2),
 (2, 3),

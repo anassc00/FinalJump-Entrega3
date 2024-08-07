@@ -22,6 +22,7 @@
     "content-type": "^1.0.5",
     "cookie": "^0.6.0",
     "cookie-signature": "^1.2.1",
+    "cors": "^2.8.5",
     "debug": "^2.6.9",
     "define-data-property": "^1.1.4",
     "denque": "^2.1.0",
@@ -135,18 +136,8 @@
   },
   "keywords": [],
   "author": "",
-<<<<<<< HEAD
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "mongodb": "^6.7.0",
-    "mysql2": "^3.11.0",
-    "nodemon": "^3.1.3",
-    "sequelize": "^6.37.3"
+  "devDependencies": {
+    "sequelize-cli": "^6.6.2"
   }
-=======
-  "license": "ISC"
->>>>>>> 1eaa125c55830e1126591a897d97a1394f7b8548
 }

@@ -8,20 +8,20 @@ const Actor = ActorModel(
   require("sequelize").DataTypes
 );
 
-const actoresRouter = Router();
+const actorsRouter = Router();
 
 // Obtener todos los actores
-actoresRouter.get("/", async (req, res) => {
+actorsRouter.get("/", async (req, res) => {
   try {
-    const actores = await Actor.findAll();
-    res.json(actores);
+    const actors = await Actor.findAll();
+    res.json(actors);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
 // Obtener un actor por ID
-  actoresRouter.get("/:id", async (req, res) => {
+actorsRouter.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const actor = await Actor.findByPk(id);
@@ -36,7 +36,7 @@ actoresRouter.get("/", async (req, res) => {
 });
 
 // Crear un nuevo actor
-actoresRouter.post("/", async (req, res) => {
+actorsRouter.post("/", async (req, res) => {
   try {
     const { nombre } = req.body;
     const newActor = await Actor.create({ nombre });
@@ -47,7 +47,7 @@ actoresRouter.post("/", async (req, res) => {
 });
 
 // Actualizar un actor por ID
-actoresRouter.put("/:id", async (req, res) => {
+actorsRouter.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const actor = await Actor.findByPk(id);
@@ -64,7 +64,7 @@ actoresRouter.put("/:id", async (req, res) => {
 });
 
 // Eliminar un actor por ID
-actoresRouter.delete("/:id", async (req, res) => {
+actorsRouter.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const deleted = await Actor.destroy({ where: { id } });
@@ -78,4 +78,5 @@ actoresRouter.delete("/:id", async (req, res) => {
   }
 });
 
-module.exports = {actoresRouter};
+module.exports = { actorsRouter };
+

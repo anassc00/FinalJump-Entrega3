@@ -58,7 +58,7 @@ contenidosRouter.get('/contenido/titulo/:titulo', async (req, res) => {
     try {
         const { titulo } = req.params;
 
-        const contenido = await Contenido.findAll({
+        const contenido = await Contenido.findOne({
             where: { titulo: { [Sequelize.Op.like]: `%${titulo}%` } },
             attributes: ['titulo', 'poster', 'trailer', 'resumen'],
             include: [

@@ -16,7 +16,7 @@ CREATE TABLE trailerflix.tags (
     nombre VARCHAR(100) NOT NULL UNIQUE
 );
 
-CREATE TABLE trailerflix.actores (
+CREATE TABLE trailerflix.actors (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL
 );
@@ -44,5 +44,5 @@ CREATE TABLE trailerflix.reparto_de_contenidos (
     contenido_id BIGINT,
     actor_id INT,
     FOREIGN KEY (contenido_id) REFERENCES trailerflix.contenidos(id),
-    FOREIGN KEY (actor_id) REFERENCES trailerflix.actores(id)
+    FOREIGN KEY (actors_id) REFERENCES trailerflix.actors(id)
 );

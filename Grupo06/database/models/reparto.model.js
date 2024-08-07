@@ -1,32 +1,63 @@
 
+// module.exports = (sequelize, Sequelize, DataTypes) => {
+//     const Actor = require('./actor.model')(sequelize, Sequelize, DataTypes);
+//     const Contenido = require('./contenido.model')(sequelize, Sequelize, DataTypes);
+//     const Reparto = sequelize.define('reparto_de_contenidos', {
+//         contenido_id: {
+//             type: DataTypes.INTEGER, // Cambiar a BIGINT si es necesario
+//             allowNull: false,
+//             references: {
+//                 model: 'contenidos',
+//                 key: 'id',
+//             }
+//         },
+//         actor_id: {
+//             type: DataTypes.INTEGER,
+//             allowNull: false,
+//             references: {
+//                 model: 'actores',
+//                 key: 'id',
+//             }
+//         }
+//     }, {
+//         timestamps: false,
+//         underscored: true,
+//         tableName: 'reparto_de_contenidos'
+//     });
+
+//     return Reparto;
+// }
+
 module.exports = (sequelize, Sequelize, DataTypes) => {
     const Actor = require('./actor.model')(sequelize, Sequelize, DataTypes);
     const Contenido = require('./contenido.model')(sequelize, Sequelize, DataTypes);
     const Reparto = sequelize.define('reparto_de_contenidos', {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+        },
         contenido_id: {
             type: DataTypes.INTEGER, // Cambiar a BIGINT si es necesario
             allowNull: false,
             references: {
-                model: 'contenido',
+                model: 'contenidos',
                 key: 'id',
             }
         },
-        actor_id: {
+        actors_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'actor',
+                model: 'actors',
                 key: 'id',
             }
         }
     }, {
         timestamps: false,
         underscored: true,
-        tableName: 'reparto_de_contenido'
+        tableName: 'reparto_de_contenidos'
     });
-<<<<<<< HEAD
-=======
-    
     Actor.belongsToMany(Contenido, { 
         through: Reparto,
         foreignKey: 'actor_id',
@@ -47,7 +78,6 @@ module.exports = (sequelize, Sequelize, DataTypes) => {
     Reparto.sync().then(() => {
         console.log('Tabla de reparto sincronizada');
     }); 
->>>>>>> 1eaa125c55830e1126591a897d97a1394f7b8548
 
     return Reparto;
 }

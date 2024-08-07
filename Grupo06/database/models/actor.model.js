@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize, DataTypes) => {
-    const Actor = sequelize.define('actor', {
+    const Actor = sequelize.define('actors', {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -11,10 +11,7 @@ module.exports = (sequelize, Sequelize, DataTypes) => {
             allowNull: false,
         }
     }, {
-<<<<<<< HEAD
-        tableName: 'actor',
-=======
->>>>>>> 1eaa125c55830e1126591a897d97a1394f7b8548
+        tableName: 'actors',
         timestamps: false,
         underscored: true,
     });

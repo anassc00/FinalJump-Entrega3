@@ -1,13 +1,14 @@
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require('cors');
 const config = require("./config/config.js");
 const PORT = config.PORT || 3001;
 const { sequelize } = require("./database/connect_mysql.js");
 const { generosRouter } = require("./controllers/generos.controller.js");
-<<<<<<< HEAD
-const { actoresRouter } = require("./controllers/actores.controller.js")
+const { actorsRouter } = require("./controllers/actores.controller.js");
 const { repartosRouter } = require("./controllers/repartos.controller.js");
-=======
 const { tagsDeContenidoRouter } = require("./controllers/tagsDeContenido.controller.js");
 const { tagsRouter } = require("./controllers/tags.controller.js");
 const { contenidosRouter } = require("./controllers/contenidos.controller.js");
@@ -21,16 +22,16 @@ const {
   Tag,
   TagsDeContenido,
 } = require("./database/models");
-const corsOptions = {  origin: "http://localhost:" + config.PORT,};
 
->>>>>>> 1eaa125c55830e1126591a897d97a1394f7b8548
+const corsOptions = { origin: "http://localhost:" + config.PORT };
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors(corsOptions));
 
 app.get("/", (req, res) => {
-  res.json({ message: "This is de landing page for the moment" });
+  res.json({ message: "This is the landing page for the moment" });
 });
 
 async function authenticate() {
@@ -53,26 +54,31 @@ async function closeConnection() {
 
 authenticate();
 
-//AQUI SE DEBERIA LLAMAR A LOS ENDPOINTS EN LA CARPETA ROUTE
-
-app.use("/api", generosRouter);
-<<<<<<< HEAD
-app.use("/api/actores", actoresRouter);
+app.use("/api/generos", generosRouter);
+app.use("/api/actors", actorsRouter);
 app.use("/api/repartos", repartosRouter);
-=======
-app.use("/api", categoriasRouter);
-app.use("/api", contenidosRouter);
-app.use("/api", tagsRouter);
-app.use("/api", tagsDeContenidoRouter);
->>>>>>> 1eaa125c55830e1126591a897d97a1394f7b8548
+app.use("/api/categorias", categoriasRouter);
+app.use("/api/contenidos", contenidosRouter);
+app.use("/api/tags", tagsRouter);
+app.use("/api/tags-de-contenido", tagsDeContenidoRouter);
 
-//Llamada al servidor
-app.listen(PORT, () => {
-  console.log(`Server is running on port: ${corsOptions.origin}`);
-});
+sequelize.sync({ alter: true })
+  .then(() => {
+    console.log('Database synchronized');
+    app.listen(PORT, () => {
+      console.log(`Server is running on port: ${PORT}`);
+    });
 
-app._router.stack.forEach((r) => {
-  if (r.route && r.route.path) {
-      console.log(`Route: ${r.route.path}`);
-  }
-});
+    // Imprime las rutas
+    app._router.stack.forEach((r) => {
+      if (r.route && r.route.path) {
+        console.log(`Route: ${r.route.path}`);
+      }
+    });
+  })
+  .catch(error => {
+    console.error('Error synchronizing database:', error);
+  });
+
+
+
